@@ -27,14 +27,23 @@ body {
     justify-content: center;
 }
 
+#counter-container {
+    width: 50%;
+    height: fit-content;
+    
+    text-align: center;
+}
+
 #grade-counter {
     font-size: 500%;
 }
 
-#counter-container {
-    width: 50%;
-    text-align: center;
+/*
+#grade-percentage {
+    font-size: 50%;
+    margin: 0;
 }
+*/
 
 #subject-list {
     background-color: #282f44;

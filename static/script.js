@@ -30,7 +30,7 @@ function createSubjectEntry(subject, amount) {
     entry.appendChild(entryName);
     entry.appendChild(entryAmount);
 
-    subjectList.appendChild(entry);
+    return entry;
 }
 
 // get all of the grades
@@ -45,27 +45,39 @@ if (request.status != 200) {
     throw new Error(`request for retrieving grades returned error code ${request.status}`);
 }
 
-let subjectGrades = JSON.parse(request.responseText);
-let gradeAmount = 0;
+// parse the API request and set variables
+let grades = JSON.parse(request.responseText);
+let badGrades = {};
 
-// save only the bad grade amount from the object
-for (const [subject, grades] of Object.entries(subjectGrades)) {
-    subjectGrades[subject] = grades.filter(grade => grade == 1).length;
+let badGradesAmount = 0;
+let otherGradesAmount = 0;
+
+// calculate the total & subject-specific amounts of grades
+for (const subject of Object.keys(grades)) {
+    badGrades[subject] = 0;
+
+    for (const grade of grades[subject]) {
+        if (grade != 1) {
+            otherGradesAmount++; 
+            continue;
+        }
+
+        badGrades[subject]++;
+        badGradesAmount++;
+    }
 }
 
-// sort the object's stuff
-subjectGrades = Object.fromEntries(
-    Object.entries(subjectGrades).sort((a, b) => {
+// sort the bad grades in a descending order
+badGrades = Object.fromEntries(
+    Object.entries(badGrades).sort((a, b) => {
         return b[1] - a[1];
     })
 );
 
-// make the subject list entries and calculate the amount of bad grades
-for (const [subject, amount] of Object.entries(subjectGrades)) {
-    gradeAmount += amount;
-
-    createSubjectEntry(subject, amount);
+// append all of the subject-specific bad grade amounts to the subject list
+for (const subject of Object.keys(badGrades)) {
+    subjectList.appendChild(createSubjectEntry(subject, badGrades[subject]));
 }
 
 // show the grade amount on the page
-gradeCounter.innerText = gradeAmount;
+gradeCounter.innerText = badGradesAmount;
