@@ -95,3 +95,9 @@ body {
         width: 90%;
     }
 }
+
+@media screen and (max-width: 430px) {
+    .subject-entry {
+        font-size: 14px;
+    }
+}
