@@ -22,10 +22,10 @@ function createSubjectEntry(subject, amount) {
 
     if (amount == 1) {
         entryAmount.innerHTML = `<b>${amount}</b> jedynkę`;
-    } else if (amount % 10 == 5 || amount % 10 == 0) {
-        entryAmount.innerHTML = `<b>${amount}</b> jedynek`;
-    } else {
+    } else if ([2, 3, 4].includes(amount % 10)) {
         entryAmount.innerHTML = `<b>${amount}</b> jedynki`;
+    } else {
+        entryAmount.innerHTML = `<b>${amount}</b> jedynek`;
     }
 
     entry.appendChild(entryName);

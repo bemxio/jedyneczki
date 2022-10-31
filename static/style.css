@@ -1,30 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-html, body {
-    margin: 0; 
-    height: 100%;
-    overflow-x: hidden;
-}
-
 body {
     font-family: "Lato", sans-serif;
     font-size: 24px;
 
     background-color: #191d32;
     color: #ffffff;
+
+    margin: 0;
 }
 
 #main-container {
     display: flex;
     position: absolute;
     
-    width: 99%;
+    width: 100%;
 
     top: 50%;
     transform: translateY(-50%);
 
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #counter-container {
@@ -62,6 +59,8 @@ body {
     padding: 1.5%;
     border-radius: 10px;
     margin-bottom: 10px;
+
+    height: fit-content;
 }
 
 .subject-entry-amount {
