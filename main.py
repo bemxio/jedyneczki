@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request, HTTPException
 import uvicorn
 
 from vulcan import Keystore, Account, Vulcan
+import json
 import os
 
 # load JSON files needed to log into vulcan
@@ -11,6 +12,10 @@ with open("keystore.json", "r") as file:
 
 with open("account.json", "r") as file:
     account = Account.load(file)
+
+# load the JSON file for uvicorn configuration
+with open("uvicorn.json", "r") as file:
+    config = json.load(file)
 
 app = FastAPI(openapi_url=None)
 vulcan = Vulcan(keystore, account)
@@ -49,4 +54,4 @@ async def get_grades():
     return grades
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+    uvicorn.run("main:app", **config)
