@@ -10,7 +10,8 @@ body {
     margin: 0;
 }
 
-#main-container {
+/* the container used to show the bad grades amount & the subject grades list */
+#jedynki {
     display: flex;
     position: absolute;
     
@@ -24,23 +25,25 @@ body {
     flex-wrap: wrap;
 }
 
-#counter-container {
+/* the container used to show the bad grades amount */
+#jedynki-showcase {
     width: 50%;
     height: fit-content;
     
     text-align: center;
 }
 
-#grade-counter {
+#jedynki-showcase-amount {
     font-size: 500%;
 }
 
-#grade-percentage {
+#jedynki-showcase-percentage {
     font-size: 50%;
     margin: 0;
 }
 
-#subject-list {
+/* the container used to show the subject grades list */
+#jedynki-list {
     background-color: #282f44;
     font-size: 16px;
 
@@ -53,7 +56,7 @@ body {
     overflow-y: scroll;
 }
 
-.subject-entry {
+.jedynki-list-subject {
     background-color: #1e2530;
 
     padding: 10px;
@@ -63,11 +66,12 @@ body {
     height: fit-content;
 }
 
-.subject-entry-amount {
+.jedynki-list-subject-amount {
     float: right;
 }
 
-#footer-text {
+/* the paragraph element used for a footer */
+#footer {
     position: absolute;
     bottom: 0;
 
@@ -81,23 +85,24 @@ body {
     margin-bottom: 10px;
 }
 
-#footer-text a {
+#footer a {
     color: #434d70;
     text-decoration: none;
 }
 
+/* fixes for smaller screens */
 @media screen and (max-width: 880px) {
-    #counter-container {
+    #jedynki-showcase {
         width: 100%;
     }
 
-    #subject-list {
+    #jedynki-list {
         width: 90%;
     }
 }
 
 @media screen and (max-width: 430px) {
-    .subject-entry {
+    .jedynki-list-subject {
         font-size: 14px;
     }
 }

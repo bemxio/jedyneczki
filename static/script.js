@@ -1,24 +1,24 @@
 // elements on the page
-const subjectList = document.getElementById("subject-list");
-const gradeCounter = document.getElementById("grade-counter");
-const gradePercentage = document.getElementById("grade-percentage");
+const jedynkiList = document.getElementById("jedynki-list");
+const jedynkiShowcaseAmount = document.getElementById("jedynki-showcase-amount");
+const jedynkiShowcasePercentage = document.getElementById("jedynki-showcase-percentage");
 
 // helper functions
 function createSubjectEntry(subject, amount) {
     const entry = document.createElement("div");
 
-    entry.className = "subject-entry";
+    entry.className = "jedynki-list-subject";
 
     // create the subject entry name
     const entryName = document.createElement("span");
 
-    entryName.className = "subject-entry-name";
+    entryName.className = "jedynki-list-subject-name";
     entryName.innerHTML = `<b>${subject}</b> stanowi`;
 
     // create the subject entry amount
     const entryAmount = document.createElement("span");
     
-    entryAmount.className = "subject-entry-amount";
+    entryAmount.className = "jedynki-list-subject-amount";
 
     if (amount == 1) {
         entryAmount.innerHTML = `<b>${amount}</b> jedynkę`;
@@ -77,12 +77,12 @@ badGrades = Object.fromEntries(
 
 // append all of the subject-specific bad grade amounts to the subject list
 for (const subject of Object.keys(badGrades)) {
-    subjectList.appendChild(createSubjectEntry(subject, badGrades[subject]));
+    jedynkiList.appendChild(createSubjectEntry(subject, badGrades[subject]));
 }
 
 // calculate the percentage of bad grades
 let gradeRatio = Math.round((badGradesAmount / (badGradesAmount + otherGradesAmount)) * 100);
 
 // show the values on the page
-gradeCounter.innerText = badGradesAmount;
-gradePercentage.innerHTML = `(co stanowi <b>${gradeRatio}%</b> moich ocen)`
+jedynkiShowcaseAmount.innerText = badGradesAmount;
+jedynkiShowcasePercentage.innerHTML = `(co stanowi <b>${gradeRatio}%</b> moich ocen)`
