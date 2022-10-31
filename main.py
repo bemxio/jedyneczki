@@ -12,7 +12,7 @@ with open("keystore.json", "r") as file:
 with open("account.json", "r") as file:
     account = Account.load(file)
 
-app = FastAPI()
+app = FastAPI(openapi_url=None)
 vulcan = Vulcan(keystore, account)
 
 # needed to show stuff in the front-end
