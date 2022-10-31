@@ -1,6 +1,7 @@
 // elements on the page
 const subjectList = document.getElementById("subject-list");
 const gradeCounter = document.getElementById("grade-counter");
+const gradePercentage = document.getElementById("grade-percentage");
 
 // helper functions
 function createSubjectEntry(subject, amount) {
@@ -79,5 +80,9 @@ for (const subject of Object.keys(badGrades)) {
     subjectList.appendChild(createSubjectEntry(subject, badGrades[subject]));
 }
 
-// show the grade amount on the page
+// calculate the percentage of bad grades
+let gradeRatio = Math.round((badGradesAmount / (badGradesAmount + otherGradesAmount)) * 100);
+
+// show the values on the page
 gradeCounter.innerText = badGradesAmount;
+gradePercentage.innerHTML = `(co stanowi <b>${gradeRatio}%</b> moich ocen)`
