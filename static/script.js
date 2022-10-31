@@ -85,4 +85,4 @@ let gradeRatio = Math.round((badGradesAmount / (badGradesAmount + otherGradesAmo
 
 // show the values on the page
 jedynkiShowcaseAmount.innerText = badGradesAmount;
-jedynkiShowcasePercentage.innerHTML = `(co stanowi <b>${gradeRatio}%</b> moich ocen)`
+jedynkiShowcasePercentage.innerHTML = `(co stanowi <b>${gradeRatio}%</b> wszystkich ocen)`
