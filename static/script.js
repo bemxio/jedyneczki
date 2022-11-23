@@ -81,7 +81,7 @@ for (const subject of Object.keys(badGrades)) {
 }
 
 // calculate the percentage of bad grades
-let gradeRatio = Math.round((badGradesAmount / (badGradesAmount + otherGradesAmount)) * 100);
+let gradeRatio = Math.round((badGradesAmount / (badGradesAmount + otherGradesAmount)) * 10000) / 100;
 
 // show the values on the page
 jedynkiShowcaseAmount.innerText = badGradesAmount;
