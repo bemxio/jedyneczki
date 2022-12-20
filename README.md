@@ -17,7 +17,7 @@ Make sure you're running Python 3.7+ before doing any steps.
 ```json
 {
     "host": "<YOUR_DESIRED_HOSTNAME_HERE>",
-    "port": "<YOUR_DESIRED_PORT_HERE>"
+    "port": <YOUR_DESIRED_PORT_HERE>
 }
 ```
 6. Run `python3 -m pip install -r requirements.txt` to install required requirements.
