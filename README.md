@@ -1,5 +1,5 @@
 # jedyneczki
-A website showing how much bad grades did I get, from the beginning of the year to now!
+A website showing how much bad grades I got, from the beginning of the year to now!
 
 Made in Python, using [FastAPI](https://fastapi.tiangolo.com/) and [vulkan-api](https://github.com/kapi2289/vulcan-api).
 
